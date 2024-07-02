@@ -1,5 +1,5 @@
 <div align=center>
-Note: This is a rough-draft - This document is still a work in progress.
+Note: This is a rough draft - This document is still a work in progress.
 </div>
 
 _______________________________
@@ -10,8 +10,8 @@ LDAP (Lightweight Directory Access Protocol) is an open, secure, and cross-platf
 ## Key Features of LDAP
 
 - **Lightweight**: Simple, efficient, and fast.
-- **Directory**: Organizes data in a tree-like structure, similar to a file directory or phone directory.
-- **Access**: Provides methods to securely access, search, and modify directory data, allowing only authorized users.
+- **Directory**: Organises data in a tree-like structure, similar to a file directory or phone directory.
+- **Access**: Provides methods to securely access, search, and modify directory data, allowing only authorised users.
 - **Protocol**: Defines a set of rules for interacting with the directory and communicating data between clients and the directory server.
 
 ## Why Use LDAP?
@@ -28,13 +28,13 @@ LDAP (Lightweight Directory Access Protocol) is an open, secure, and cross-platf
 
 ## Practical Examples
 
-### CASE 1: Centralized Authentication
+### CASE 1: Centralised Authentication
 - Manages user credentials (like usernames and passwords) centrally, allowing users to use the same login information across multiple services (email, computers, applications).
 
-### CASE 2: Organizational Structure
+### CASE 2: Organisational Structure
 - Stores information about users, groups, devices, and other resources, making it easier to manage large amounts of data.
 
-### CASE 3: Standardization
+### CASE 3: Standardisation
 - Provides a standard way for applications to interact with the directory service, ensuring compatibility and interoperability between different systems and applications.
 
 ## LDAP vs Active Directory
@@ -66,7 +66,6 @@ LDAP follows a hierarchical tree structure:
       - **Common name (cn)**
 
 ### Example Structure
-```
 DIT - Directory info tree
 |
 KNA (o - organisation)
@@ -83,7 +82,7 @@ KNA (o - organisation)
 | | | |--> address, phone, mailID (attributes)
 |---> ACCOUNTS (ou)
 | ---> Rajeev Sir (cn)
-```
+
 
 ## Important Terms (Object Classes)
 
