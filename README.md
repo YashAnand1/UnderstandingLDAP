@@ -1,4 +1,6 @@
+<div align=center>
 Note: This is a rough-draft - This document is still a work in progress.
+</div>
 _______________________________
 # LDAP: Lightweight Directory Access Protocol
 
