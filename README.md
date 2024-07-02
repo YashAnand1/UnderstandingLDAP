@@ -1,3 +1,5 @@
+Note: This is a rough-draft - This document is still a work in progress.
+_______________________________
 # LDAP: Lightweight Directory Access Protocol
 
 LDAP (Lightweight Directory Access Protocol) is an open, secure, and cross-platform protocol used for connecting with directory services. It works like a phonebook where details can be searched, and data is stored in a hierarchical manner (like a tree structure). LDAP is known for being lightweight, efficient, and fast.
