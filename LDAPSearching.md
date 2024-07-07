@@ -2,7 +2,7 @@
 
 1. Find all rooms with more than 5 spinny chairs.
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w qwerty123 -b "dc=company,dc=com" "spinnyChairNo=4" spinnyChairNo -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "dc=company,dc=com" "spinnyChairNo=4" spinnyChairNo -LLL
 
 dn: cn=Indigo,ou=employees,dc=company,dc=com
 spinnyChairNo: 4
@@ -10,7 +10,7 @@ spinnyChairNo: 4
 
 2. Search for rooms that have a spinny chair color of blue.
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w qwerty123 -b "dc=company,dc=com" "(spinnyChairCol=blue)" spinnyChairCol -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "dc=company,dc=com" "(spinnyChairCol=blue)" spinnyChairCol -LLL
 dn: cn=ShantiNiketan,ou=contractors,dc=company,dc=com
 spinnyChairCol: blue
 
@@ -20,7 +20,7 @@ spinnyChairCol: blue
 
 3. Find rooms that have both black wheelless chairs and tables of any color.
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "qwerty123" -b "dc=company,dc=com" "(&(wheellessChairCol=BLack)(tableCol=*))" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "dc=company,dc=com" "(&(wheellessChairCol=BLack)(tableCol=*))" -LLL
 
 dn: cn=Aryabhat,ou=employees,dc=company,dc=com
 objectClass: roomInfo
@@ -64,7 +64,7 @@ secondHand: TRUE
 
 4. Search for rooms where the purchase date is after January 1, 2015.
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w qwerty123 -b "dc=company,dc=com" "(purchase>=201501)" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "dc=company,dc=com" "(purchase>=201501)" -LLL
 
 dn: cn=Nalanda,ou=interns,dc=company,dc=com
 objectClass: roomInfo
@@ -95,7 +95,7 @@ secondHand: TRUE
 
 5. Find all rooms that are second-hand.
 ```
-ldapsearch -H ldap://localhost:3389 -D 'cn=Directory Manager' -w qwerty123 -b "dc=company,dc=com"
+ldapsearch -H ldap://localhost:3389 -D 'cn=Directory Manager' -w [!REDACTED!] -b "dc=company,dc=com"
 "(secondHand=TRUE)" -LLL
 
 dn: cn=Patliputra,ou=contractors,dc=company,dc=com
@@ -140,7 +140,7 @@ secondHand: TRUE
 
 6. Search for rooms that belong to contractors and have more than 10 wheelless chairs.
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "qwerty123" -b "ou=contractors,dc=company,dc=com" "wheellessChairNo>=10" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "ou=contractors,dc=company,dc=com" "wheellessChairNo>=10" -LLL
 
 dn: cn=Patliputra,ou=contractors,dc=company,dc=com
 objectClass: roomInfo
@@ -158,14 +158,14 @@ secondHand: TRUE
 
 7. Find rooms that are assigned to interns and have a table color of light-brown.
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "qwerty123" -b "ou=interns,dc=company,dc=com" "tableCol=light-brown" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "ou=interns,dc=company,dc=com" "tableCol=light-brown" -LLL
 
 There was no output because a light-brown tableCol does not actually exist in the intern group 
 ```
 
 8. Search for rooms with a specific common name (e.g., Indigo).
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "qwerty123" -b "dc=company,dc=com" "(cn=Indigo)" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "dc=company,dc=com" "(cn=Indigo)" -LLL
 
 dn: cn=Indigo,ou=employees,dc=company,dc=com
 objectClass: roomInfo
@@ -193,7 +193,7 @@ This answer appears to be wrong to me because there would likely be more cases t
 10. Search for rooms that have been assigned to employees and have spinny chairs of any color except black.
 ```
 # Not done at first try
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "qwerty123" -b "dc=company,dc=com" "(&(objectClass=roomInfo)(!(spinnyChairCol=black)))" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "dc=company,dc=com" "(&(objectClass=roomInfo)(!(spinnyChairCol=black)))" -LLL
 
 dn: cn=ShantiNiketan,ou=contractors,dc=company,dc=com
 objectClass: roomInfo
@@ -235,7 +235,7 @@ secondHand: TRUE
 
 11. Find rooms that have tables purchased after 2020 and are marked as second-hand.
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w qwerty123 -b "dc=company,dc=com" "(&(purchase>=2010)(secondHand=TRUE))" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "dc=company,dc=com" "(&(purchase>=2010)(secondHand=TRUE))" -LLL
 dn: cn=Nalanda,ou=interns,dc=company,dc=com
 objectClass: roomInfo
 objectClass: top
@@ -265,13 +265,13 @@ secondHand: TRUE
 
 12. Search for rooms that belong to interns and have wheelless chairs with the color blue.
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w qwerty123 -b "ou=interns,dc=company,dc=com" "(wheellessChairCol=blue)" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "ou=interns,dc=company,dc=com" "(wheellessChairCol=blue)" -LLL
 No output because there are no wheel-less chairs in interns' room
 ```
 
 13. Find all rooms with a purchase date in the year 2012.
 ```
-ldapsearch -H "ldap://localhost:3389" -D "cn=Directory MANAGER" -w "qwerty123" -b "dc=company,dc=com" "purchase>=2012" -LLL
+ldapsearch -H "ldap://localhost:3389" -D "cn=Directory MANAGER" -w "[!REDACTED!]" -b "dc=company,dc=com" "purchase>=2012" -LLL
 dn: cn=Indigo,ou=employees,dc=company,dc=com
 objectClass: roomInfo
 objectClass: top
@@ -329,7 +329,7 @@ secondHand: TRUE
 ```
 # Not done at first try
 
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "qwerty123" -b "dc=company,dc=com" "tableCol=*brown" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "dc=company,dc=com" "tableCol=*brown" -LLL
 
 dn: cn=Indigo,ou=employees,dc=company,dc=com
 objectClass: roomInfo
@@ -411,7 +411,7 @@ secondHand: TRUE
 15. Find rooms that are not second-hand and have spinny chairs with a count of 4.
 
 ```
-ldapsearch -H "ldap://localhost:3389" -D "cn=Directory MANAGER" -w "qwerty123" -b "dc=company,dc=com" "(&(secondHand=FALSE)(spinnyChairNo=4))" -LLL
+ldapsearch -H "ldap://localhost:3389" -D "cn=Directory MANAGER" -w "[!REDACTED!]" -b "dc=company,dc=com" "(&(secondHand=FALSE)(spinnyChairNo=4))" -LLL
 
 dn: cn=Indigo,ou=employees,dc=company,dc=com
 objectClass: roomInfo
@@ -431,7 +431,7 @@ wheellessChairCol: Red
 ```
 *Could not attempt on the first try*
 
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "qwerty123" -b "dc=company,dc=com" "(&(objectClass=roomInfo)(!(tableCol=Dark-brown)))" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "dc=company,dc=com" "(&(objectClass=roomInfo)(!(tableCol=Dark-brown)))" -LLL
 
 dn: cn=Indigo,ou=employees,dc=company,dc=com
 objectClass: roomInfo
@@ -486,7 +486,7 @@ secondHand: TRUE
 
 17.  Find rooms with more than 10 wheelless chairs and a purchase date before 2010.
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "qwerty123" -b "dc=company,dc=com" "(&(wheellessChairNo>=10)(purchase<=2010))" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "dc=company,dc=com" "(&(wheellessChairNo>=10)(purchase<=2010))" -LLL
 dn: cn=Patliputra,ou=contractors,dc=company,dc=com
 objectClass: roomInfo
 objectClass: top
@@ -503,7 +503,7 @@ secondHand: TRUE
 
 18. Search for rooms assigned to employees that have both black spinny chairs and black wheelless chairs.
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "qwerty123" -b "dc=company,dc=com" "(&(wheellessChairCol=black)(spinnyChairCol=black))" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "dc=company,dc=com" "(&(wheellessChairCol=black)(spinnyChairCol=black))" -LLL
 dn: cn=Aryabhat,ou=employees,dc=company,dc=com
 objectClass: roomInfo
 objectClass: top
@@ -533,7 +533,7 @@ secondHand: TRUE
 
 19.Find all rooms with spinny chairs but no wheelless chairs.
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "qwerty123" -b "dc=company,dc=com" "(&(wheellessChairNo>=1)(spinnyChairNo=0))" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "dc=company,dc=com" "(&(wheellessChairNo>=1)(spinnyChairNo=0))" -LLL
 
 dn: cn=Kitchen,ou=common,dc=company,dc=com
 objectClass: roomInfo
@@ -551,7 +551,7 @@ secondHand: TRUE
 
 20. Search for rooms that belong to contractors and have tables with a specific color (e.g., dark-brown).
 ```
-ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "qwerty123" -b "ou=contractors,dc=company,dc=com" "(tableCol=dark-brown)" -LLL
+ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "ou=contractors,dc=company,dc=com" "(tableCol=dark-brown)" -LLL
 
 dn: cn=Patliputra,ou=contractors,dc=company,dc=com
 objectClass: roomInfo
