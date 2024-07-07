@@ -1,0 +1,14 @@
+DN: cn=Indigo,ou=employees,dc=company,dc=com
+changetype: modify
+replace: tableno
+tableno: 20
+
+DN: cn=Indigo,ou=employees,dc=company,dc=com
+changetype: modify
+delete: wheellessChairCol
+wheellessChairCol: blue
+
+DN: cn=Indigo,ou=employees,dc=company,dc=com
+changetype: modify
+add: wheellessChairCol
+wheellessChairCol: Red
