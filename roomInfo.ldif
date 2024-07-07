@@ -1,0 +1,105 @@
+# Defining Attributes For The ObjectClass
+dn: cn=schema
+changetype: modify
+add: attributetypes
+attributetypes: ( spinnyChairNo-OID NAME 'spinnyChairNo' DESC 'spinnyChairNo, IA5String' EQUALITY caseIgnoreIA5match SUBSTR caseIgnoreIA5SubstringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{5} SINGLE-VALUE X-ORIGIN ('Num of spinnyChair' 'user defined') )
+attributetypes: ( spinnyChairCol-OID NAME 'spinnyChairCol' DESC 'spinnyChairCol, IA5String' EQUALITY caseIgnoreIA5match SUBSTR caseIgnoreIA5SubstringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{5} SINGLE-VALUE X-ORIGIN ('Col of spinnyChair' 'user defined') )
+attributetypes: ( wheellessChairNo-OID NAME 'wheellessChairNo' DESC 'wheellessChairNo, IA5String' EQUALITY caseIgnoreIA5match SUBSTR caseIgnoreIA5SubstringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{5} SINGLE-VALUE X-ORIGIN ('num of wheellessChair' 'user defined') )
+attributetypes: ( wheellessChairCol-OID NAME 'wheellessChairCol' DESC 'wheellessChairCol, IA5String' EQUALITY caseIgnoreIA5match SUBSTR caseIgnoreIA5SubstringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{5} SINGLE-VALUE X-ORIGIN ('Col of wheellessChair' 'user defined') )
+attributetypes: ( tableNo-OID NAME 'tableNo' DESC 'tableNo, IA5String' EQUALITY caseIgnoreIA5match SUBSTR caseIgnoreIA5SubstringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{5} SINGLE-VALUE X-ORIGIN ('Num of table' 'user defined') )
+attributetypes: ( tableCol-OID NAME 'tableCol' DESC 'tableCol, IA5String' EQUALITY caseIgnoreIA5match SUBSTR caseIgnoreIA5SubstringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{5} SINGLE-VALUE X-ORIGIN ('Col of table' 'user defined') )
+
+# Defining ObjectClass For Being Added tO The Data-Entries
+dn: cn=schema
+changetype: modify
+add: objectclasses
+objectclasses: ( roomInfo-OID NAME 'roomInfo' SUP top STRUCTURAL MUST (spinnyChairNo $ tableNo $ wheellessChairNo  ) MAY ( spinnyChairCol $ wheellessChairCol $ tableCol $ cn ) X-ORIGIN ( 'info on table chairs in rooms' 'user defined' ) )
+
+# A company has 4 types of rooms: For employees, contractors, interns and common. 
+# these rooms have tables and/or chairs and below is their data hierarchically
+ 
+## Creating objects for 4 rooms
+dn: ou=employees,dc=chairtables,dc=com 
+objectclass: organizationalUnit
+objectclass: top
+description: room assigned to KNA employees
+
+dn: ou=contractors,dc=chairtables,dc=com
+objectclass: organizationalUnit
+objectclass: top
+description: assigned to contractors
+
+dn: ou=interns,dc=chairtables,dc=com
+objectclass: organizationalUnit
+objectclass: top
+description: assigned to interns
+
+dn: ou=common,dc=chairtables,dc=com
+objectclass: organizationalUnit
+objectclass: top
+description: assigned to all / to be used by all
+
+## Data of rooms belonging to the group of employees, contractors or interns
+### assigned to employees
+dn: cn=Indigo,ou=employees,dc=chairtables,dc=com
+objectclass: roomInfo
+cn: Indigo
+spinnyChairNo: 4
+spinnyChairCol: black
+wheellessChairNo: 10
+wheellessChairCol: blue
+tableNo: 10
+tableCol: woodish-brown
+
+dn: cn=Aryabhat,ou=employees,dc=chairtables,dc=com
+objectclass: roomInfo
+cn: Aryabhat
+spinnyChairNo: 5
+spinnyChairCol: black
+wheellessChairNo: 7
+wheellessChairCol: black
+tableNo: 1
+tableCol: light-brown
+
+### assigned to contractors
+dn: cn=Patliputra,ou=contractors,dc=chairtables,dc=com
+objectclass: roomInfo
+cn: Patliputra
+spinnyChairNo: 10
+spinnyChairCol: black
+wheellessChairNo: 25
+wheellessChairCol: black
+tableNo: 6
+tableCol: dark-brown
+
+dn: cn=ShantiNiketan,ou=contractors,dc=chairtables,dc=com
+objectclass: roomInfo
+cn: ShantiNiketan
+spinnyChairNo: 6
+spinnyChairCol: blue
+wheellessChairNo: 3
+wheellessChairCol: blue
+tableNo: 7
+tableCol: light-brown
+
+### assigned to interns
+dn: cn=Nalanda,ou=interns,dc=chairtables,dc=com
+objectclass: roomInfo
+cn: Nalanda
+spinnyChairNo: 21
+spinnyChairCol: blue
+wheellessChairNo: 9
+wheellessChairCol: black
+tableNo: 10
+tableCol: chocholate-brown
+
+### common roomInfos
+dn: cn=Kitchen,ou=common,dc=chairtables,dc=com
+objectclass: roomInfo
+cn: kitchen
+spinnyChairNo: 0
+spinnyChairCol: N/A
+wheellessChairNo: 30 
+wheellessChairCol: Red
+tableNo: 4
+tableCol: Dark-brown
