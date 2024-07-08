@@ -35,15 +35,14 @@ LDAP's directory is similar to the **traditional** 'ContactList' from cellphones
 - If contact list became too long, navigating would be difficult
 - There will be no clear organisation for saving contacts and forming groups
 
-Some of the real life examples of a hierarchical directory that I have come up with are:
+These disadvantages are solved by Hierarchical directories, Some of the real life examples of a hierarchical directory that I have come up with are:
 - The [output](https://unix.stackexchange.com/questions/127063/tree-command-output-with-pure-7-bit-ascii-output) of the 'tree' command
 - A detailed-plan for a pyramid scheme
 - Table of content
   
-Within the context of LDAP, a directory is a database whose speciality is fast filtered searching from a huge hierarchical data. LDAP's directory can be used to store information like user authentication, authorisation and other information:
+Within the context of LDAP, a directory is a database whose speciality is fast filtered searching from a huge hierarchical data. Accessing LDAP's directory is secure as it provides User:
 - **Authentication**: Verifying the identity of a user or system - Is the User/Pass correct?
 - **Authorisation**: Defines what a user is allowed and not allowed to do - Example: Role Based Access Control, users not allowed to open admin-marked files.
-- **Other Information**: Information as attribute-values in the form of key-value pairs within groups
 
 ### Topics Related To Directory 
 #### Directory Information Tree (DIT)
