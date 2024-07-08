@@ -192,21 +192,28 @@ GIven that the entries from my LDIF File had been added to the directory, I modi
 After the above file had been created, I ran the `ldapmodify -a -c -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!rEDACTED!]" -f modify.ldif` command to add the entries into my existing directory
 
 The delete operation can be performed by writing an LDIF file like in - my [`modify.ldif`](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/modify.ldif) - or by using the `ldapdelete` or `ldapmodify` tools:
-- Using `ldapdelete`: Running `ldapdelete -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" specificAttribute=specificValue,ou=organisationalUnit,dc=company,dc=com`
-- Using `ldapmodify`: Running `Ldapmodify -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" specificAttribute=specificValue,ou=organisationalUnit,dc=company,dc=com Changetype:delete`
+- Using `ldapdelete`:
+  ```ldapdelete -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" specificAttribute=specificValue,ou=organisationalUnit,dc=company,dc=com```
+- Using `ldapmodify`:
+  ```Ldapmodify -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" specificAttribute=specificValue,ou=organisationalUnit,dc=company,dc=com Changetype:delete```
 
 ## Searching Using LDAPSearch
 As discussed before, directories are optimised to provide a fast search result even with multiple-filters. In order to do so, the `ldapsearch` tool is brought to use for being able to filter in the following scenarios:
 - Within Object: "Display all rooms assigned under the employees group (organisationalUnit)"
-	- Done using base-searching: `ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "ou=employees,dc=company,dc=com"`
+	- Done using base-searching:
+   ```ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "ou=employees,dc=company,dc=com"```
 - Equality: "Display all rooms where the number of chairs (attribute) is exactly 5"
-	- Done using base-searching: `ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "ou=employees,dc=company,dc=com" "(chairs=5)"`
+	- Done using base-searching:
+   ```ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "ou=employees,dc=company,dc=com" "(chairs=5)"```
 - Exception: "Display every room where the tableColour (attribute) is not brown (is not equal to value)"
-	- Done using base-searching: `ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "dc=company,dc=com" "(&(objectClass=roomInfo)(!(tableColour=brown)))"`
+	- Done using base-searching:
+   ```ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "dc=company,dc=com" "(&(objectClass=roomInfo)(!(tableColour=brown)))"```
 - Null: "Display all those rooms where the value of the chairColour attribute is empty/null"
-	- Done using base-searching: `ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "dc=company,dc=com" "(&(objectClass=roomInfo)(!(chairColour=*)))"`
+	- Done using base-searching:
+   ```ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "dc=company,dc=com" "(&(objectClass=roomInfo)(!(chairColour=*)))"```
 - Substring Search: "Display the rooms whose chairColour (attribute) starts with the letter "D" (Value substring)"
-	- Done using base-searching: `ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "dc=company,dc=com" "(chairColour=D*)"`
+	- Done using base-searching:
+   ```ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "dc=company,dc=com" "(chairColour=D*)"```
 
 For being able to get better at filtering searches while utilising the `ldapsearch` tool, [I practised 20 Questions/Situations](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/LDAPSearching.md) based on the `roomInfo.ldif` that I had created earlier. 
 
