@@ -18,24 +18,28 @@ LDAP (Lightweight Directory Access Protocol) is a **protocol** or a way of talki
 An analogical explanation of the same is as follows:
 > It works like a phonebook where details can be searched and data is stored in a hierarchical manner / like a tree structure.
 
+Provided below is a slightly more detailed explanation of LDAP - which consists of LDAP Client for Users & LDAP Server for data storage.
 #### Protocol
 
-The word protocol is equated with guidelines or rules that govern actions or behaviours. In networking, a protocol is a set of instructions or rules that computers within a network follow to talk to eachother. 
+The word protocol is equated with guidelines or rules that govern actions or behaviours. Similarly in networking, a protocol is a set of instructions or rules that computers within a network follow to talk to eachother. 
 
-Within the context of LDAP, some of the established protocol or rule or guideline that is expected to be followed for accessing directories is as follows. One such rule defines how the Client-Server interaction will handle authentication and authorisation and how client will talk to directory server. It should be noted that interaction can also be held anonymously without authentication, if allowed by server admins. 
+Within the context of LDAP, one such rule from the established rules that are expected to be followed, defines how the Client-Server interaction will handle authentication and authorisation and how client will talk to directory server. It should be noted that interaction can also be held anonymously without authentication, if allowed by server admins. 
 
-Simply speaking, this Protocol or rule explains how communication will be held for accessing the data or content belonging within the LDAP directory. 
+Simply speaking, this Protocol or rule explains how communication will be held for accessing the data from the Directory Server or content belonging within the LDAP directory. 
 
 #### Directory
 
-A directory is a structured way of organising information for easy access like a catalogue, employee directory, phone book, library card, emergency contact list, traditional mobile phonebook/contact list, etc.
+A directory is a structured way of organising information for easy access like a [catalogue](https://www.visme.co/templates/catalogs/), employee directory, phone book, library card, emergency contact list, etc.
 
-LDAP's directory is similar to the traditional 'ContactList' from cellphones contains contacts with their phone-numbers and additional information in the form of directory. However, it should be noted that [LDAP's directory is Hierarchical and not Flat type](https://stackoverflow.com/questions/40558806/best-directory-structure-for-static-files-hierarchical-vs-flat), like the 'ContactList'. In this application, there would be no groupings or categories and all entries of contacts will independent of eachother but still on the same level. There would also be some disadvantages of this flat format:
-- If contact list becomes too long, navigating would be difficult
+LDAP's directory is similar to the **traditional** 'ContactList' from cellphones that contain contacts with their phone-numbers and additional attributes in the form of a directory. However, it should be noted that [LDAP's directory is Hierarchical and not Flat type](https://stackoverflow.com/questions/40558806/best-directory-structure-for-static-files-hierarchical-vs-flat), like the 'ContactList'. In this application therefore, there would be no groupings or categories and all entries of contacts will be independent of eachother but still be on the same level. There would also be some disadvantages of this flat format:
+- If contact list became too long, navigating would be difficult
 - There will be no clear organisation for saving contacts and forming groups
 
-LDAP's directory uses hierarchical Real life examples of a hierarchical directory can be table of content, the output of the 'tree' command, a detailed-plan for a pyramid scheme, etc.
-
+Some of the real life examples of a hierarchical directory that I have come up with are:
+- The [output](https://unix.stackexchange.com/questions/127063/tree-command-output-with-pure-7-bit-ascii-output) of the 'tree' command
+- A detailed-plan for a pyramid scheme
+- Table of content
+  
 Within the context of LDAP, a directory is a database whose speciality is fast filtered searching from a huge hierarchical data. LDAP's directory can be used to store information like user authentication, authorisation and other information:
 - **Authentication**: Verifying the identity of a user or system - Is the User/Pass correct?
 - **Authorisation**: Defines what a user is allowed and not allowed to do - Example: Role Based Access Control, users not allowed to open admin-marked files.
@@ -43,36 +47,32 @@ Within the context of LDAP, a directory is a database whose speciality is fast f
 
 ### Topics Related To Directory 
 #### Directory Information Tree (DIT)
-In applications like Apache Directory Studio, DIT is used to structure and access directory entries based on their hierarchical relationships. 
+In applications like Apache Directory Studio & LDAP, DIT is used to structure and access directory entries based on their hierarchical relationships. 
 
 As explained before, LDAP connects to hierarchical directories which have tree-like structures. The suffix and other objects with **Distinguished Names (DNs)** belong within this very tree.
 
 #### Suffix & Distinguished Name (dn)
 This is the starting point of the directory, its the very foundation within which data will be added. For simplicity, the name of the site like "wikipedia.com/" is the suffix and the pages created further within it are like entries/objects. As an example, "wiki/" & "wiki/someArticle" in "wikipedia.org/wiki/someArticle" will represent how entries (pages) are organised under the suffix (wikipedia.org). Similarly in filesystem, "/" will be the suffix and the files stored under it will be the entries.
 
-Distinguished Names (dn) on the other hand, are a unique name to specify the pin-pointed location of an entry within the directory. If this is not unique, then querying specific attributes within a directory would be difficult. This is similar to how files with same name cannot be added within the same folder. If the previous example was to be represented hierarchically in LDAP, its `dn` would be `cn=someArticle, ou=wiki, dc=wikipedia, dc=org`.
+Distinguished Names (dn) on the other hand, are a unique name to specify the pin-pointed location of an entry within the directory. If this is not unique, then querying specific attributes within a directory would be difficult. This is similar to how files with same name cannot be added within the same folder. If the previous example was to be represented hierarchically in LDAP, its `dn` could be `cn=someArticle, ou=wiki, dc=wikipedia, dc=org`.
 
 ## LDAP Prerequisites
-The following installations or setups were performed on my end while
-referring to the shared [LDAP Document](https://docs.google.com/document/d/1zbjN5cB8diZPTORcUBHZclctrTYhD5sW3P_MNh-v-jM/edit):
+The following installations or setups were performed on my end while referring to the shared [LDAP Document](https://docs.google.com/document/d/1zbjN5cB8diZPTORcUBHZclctrTYhD5sW3P_MNh-v-jM/edit):
 
 **1. Containerising LDAP**
-   - Creating Container: podman run -d --name ldap-v1 -e
-   DS_DM_PASSWORD=[!REDACTED!] -v /home/user/Desktop/ldap:/data --security-opt
-   label=disable -p 3389:3389 docker.io/389ds/dirsrv:latest
-   - '-d' = detatched
+   - Creating Container: podman run -d --name ldap-v1 -e DS_DM_PASSWORD=[!REDACTED!] -v /home/user/Desktop/ldap:/data --security-opt label=disable -p 3389:3389 docker.io/389ds/dirsrv:latest
+      - '-d' = detatched
       - '-e' = extras
       - '-v' = volume (for mounting)
       - '-p' = changeable outer port:default inner port
 
 **2. Installing ldap-utils**
-   - [LDAP-Utilities](https://wiki.debian.org/LDAP/LDAPUtils) - Contains tools like `ldapsearch`, `ldapmodify`, `ldapdelete`, etc. that are used to talk to the LDAP directories
-   - Installation command: sudo apt install ldap-utils
+   - [LDAP-Utilities](https://wiki.debian.org/LDAP/LDAPUtils)
+   	- Contains tools like `ldapsearch`, `ldapmodify`, `ldapdelete`, etc. that are used to interact with the LDAP Directories
+   - Installation command: `sudo apt install ldap-utils`
 
 **3. Setting-up Apache DirectoryStudio (ApacheDS)**
-   - Downloaded tar file from the ApacheDS website
-   <https://directory.apache.org/studio/download/download-linux.html>,
-   untarred it & ran './ApacheDirectoryStudio'
+   - Downloaded tar file from the [ApacheDS website](https://directory.apache.org/studio/download/download-linux.html), untarred it & ran './ApacheDirectoryStudio'
    - Clicked 'Window -> Open Perspective -> Other -> LDAP (Default)'
    - Created a connection in the LDAP Browser using:
       - Name: originalConnection
@@ -84,9 +84,7 @@ referring to the shared [LDAP Document](https://docs.google.com/document/d/1zbjN
 ## Working With Directories
 
 ### Creating A Directory
-The following actions were performed on my end while referring to the shared [LDAP Document](https://docs.google.com/document/d/1zbjN5cB8diZPTORcUBHZclctrTYhD5sW3P_MNh-v-jM/edit) and [this DigitalOcean Guide](https://www.digitalocean.com/community/tutorials/understanding-the-ldap-protocol-data-hierarchy-and-entry-components#defining-ldap-data-components).
-
-The sample database that I created for my own understanding followed the scenario of storing information related to the Table-Chairs within a company's rooms that will be divided into different groups. The following structure was formed before getting started:
+The actions performed in this section from my end were the shared [LDAP Document](https://docs.google.com/document/d/1zbjN5cB8diZPTORcUBHZclctrTYhD5sW3P_MNh-v-jM/edit) and [this DigitalOcean Guide](https://www.digitalocean.com/community/tutorials/understanding-the-ldap-protocol-data-hierarchy-and-entry-components#defining-ldap-data-components). The sample database that I created for my own understanding followed the scenario of storing information related to the Table-Chairs within a company's rooms that will be divided into different groups. The following structure was formed before getting started:
 ```
 Company
 |
@@ -113,13 +111,10 @@ Company
                     |-------> Table-Chair details (their Number, their Colour, Type of chair, etc.) 
 ```
 
-Provided below are the steps that I utilised for creating a directory for the above structure within LDAP by strictly using LDAP Data Interchange Format (LDIF) files:
+Provided below are the steps that I utilised for creating a directory for the above structure within LDAP by strictly writing LDAP Data Interchange Format (LDIF) files:
 
 **1. Creating Suffix**
 - Entered the LDAP container using `podman exec -it ldap-v1 bash` where ldap-v1 is my container's name
-- Created a new suffix:
-	- Ran ``
-
 - Created suffix using `dsconf -D "cn=Directory Manager" ldap://localhost:3389 backend create --suffix="dc=chairtables, dc=com" --be-name="company""`
 	- *`dsconf`*: CLI-Tool for managing directories - Have not studied this tool in detail
 	- *`-D="cn=Directory Manager"`*: To define the Distinguished Name (bindDN) used while connecting - Directory Manager is Admin
@@ -135,7 +130,7 @@ I wrote the '[roomInfo.ldif](https://github.com/YashAnand1/UnderstandingLDAP/blo
 - ObjectClass definition
 - Object creation of the 4 categories as organizationalUnit & various rooms belong within these categories as a commonName
 
-The terminologies being used in the above ldif file are being explained below in a tabular form to explain these 3 entry-blocks:
+The terminologies being used in the above ldif file are being explained below in a tabular form to explain these 3 entry-blocks. Please have a look at hyperlinked LDIF FIle first and then refer to the following tables for a better understanding:
 
 1. Attribute Definitions
 | LDIF Term |  Explanation |
