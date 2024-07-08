@@ -36,7 +36,7 @@ Simply speaking, this Protocol or rule explains how communication will be held f
 
 A directory is a structured way of organising information for easy access like a [catalogue](https://www.visme.co/templates/catalogs/), employee directory, phone book, library card, emergency contact list, etc.
 
-LDAP's directory is similar to the **traditional** 'ContactList' from cellphones that contain contacts with their phone-numbers and additional attributes in the form of a directory. However, it should be noted that [LDAP's directory is Hierarchical and not Flat type](https://stackoverflow.com/questions/40558806/best-directory-structure-for-static-files-hierarchical-vs-flat), like the 'ContactList'. In this application therefore, there would be no groupings or categories and all entries of contacts will be independent of eachother but still be on the same level. There would also be some disadvantages of this flat format:
+LDAP's directory is similar to the **traditional** 'ContactList' from cellphones that contain contacts with their phone-numbers and additional attributes in the form of a directory. However, it should be noted that [LDAP's directory is Hierarchical and not Flat type](https://stackoverflow.com/questions/40558806/best-directory-structure-for-static-files-hierarchical-vs-flat), like the 'ContactList', in which, there would be no groupings or categories and all entries of contacts will be independent of eachother but still be on the same level. There would also be some disadvantages of this flat format:
 - If contact list became too long, navigating would be difficult
 - There will be no clear organisation for saving contacts and forming groups
 
