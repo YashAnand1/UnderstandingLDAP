@@ -217,9 +217,3 @@ As discussed before, directories are optimised to provide a fast search result e
 
 For being able to get better at filtering searches while utilising the `ldapsearch` tool, [I practised 20 Questions/Situations](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/LDAPSearching.md) based on the `roomInfo.ldif` that I had created earlier. 
 
-
-
-
-
-
-
