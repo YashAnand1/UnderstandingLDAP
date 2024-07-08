@@ -3,13 +3,14 @@
 # Understanding LDAP
 </div>
 
-## Table of Content
+<!-- ## Table of Content
 
 ## Resources
 - [Hierarchical VS Flat Directories](https://stackoverflow.com/questions/40558806/best-directory-structure-for-static-files-hierarchical-vs-flat)
 	- Good for understanding through computer related examples
 - [Hierarchical vs. Flat Organisational Structure](https://pingboard.com/blog/hierarchical-vs-flat-organizational-structure-and-benefits-of-each/) 
 	- Extremely great for general understanding with real life examples
+-->
 
 ## Understanding LDAP And Its Components
 LDAP (Lightweight Directory Access Protocol) is a **protocol** or a way of talking to and possibly modifying **directories**.  
