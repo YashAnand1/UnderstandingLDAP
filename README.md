@@ -2,9 +2,20 @@
 
 # Understanding LDAP
 </div>
-<!--
-## Table of Content
--->
+
+## Table of Contents
+- [Understanding LDAP And Its Components](#understanding-ldap-and-its-components)
+  - [Protocol](#protocol)
+  - [Directory](#directory)
+- [Topics Related To Directory](#topics-related-to-directory)
+  - [Directory Information Tree (DIT)](#directory-information-tree-dit)
+  - [Suffix & Distinguished Name (dn)](#suffix--distinguished-name-dn)
+- [LDAP Prerequisites](#ldap-prerequisites)
+- [Working With Directories](#working-with-directories)
+  - [Creating A Directory](#creating-a-directory)
+  - [Modifying A Directory](#modifying-a-directory)
+- [Searching Using LDAPSearch](#searching-using-ldapsearch)
+- [Resources](#resources)
 
 ## Understanding LDAP And Its Components
 LDAP (Lightweight Directory Access Protocol) is a **protocol** or a way of talking to and possibly modifying **directories**.  
