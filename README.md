@@ -40,7 +40,7 @@ LDAP's directory is similar to the **traditional** 'ContactList' from cellphones
 - If contact list became too long, navigating would be difficult
 - There will be no clear organisation for saving contacts and forming groups
 
-These disadvantages are solved by Hierarchical directories, Some of the real life examples of a hierarchical directory that I have come up with are:
+These disadvantages are solved by Hierarchical directories - Some of the real life examples of a hierarchical directory that I have come up with are:
 - The [output](https://unix.stackexchange.com/questions/127063/tree-command-output-with-pure-7-bit-ascii-output) of the 'tree' command
 - A detailed-plan for a pyramid scheme
 - Table of content
