@@ -132,7 +132,7 @@ I wrote the '[roomInfo.ldif](https://github.com/YashAnand1/UnderstandingLDAP/blo
 
 The terminologies being used in the above ldif file are being explained below in a tabular form to explain these 3 entry-blocks. Please have a look at hyperlinked LDIF FIle first and then refer to the following tables for a better understanding:
 
-1. Attribute Definitions
+2.1. Attribute Definitions
   
 | LDIF Term |  Explanation |			
 |----|-----------------------------------------------------------------|			
@@ -142,7 +142,7 @@ The terminologies being used in the above ldif file are being explained below in
 | `SYNTAX`    | In LDAP SYNTAX = DataType like string, integer, etc. but with a [unique code](https://ldap.com/attribute-syntaxes/) |		
 | `SINGLE-VALUE`| Some attributes can only have one value but some may have many |		
 
-3. ObjectClass Definitions
+2.2. ObjectClass Definitions
 
 | LDIF Term    | eXplanation    |			
 |---|--------------------------------------|			
@@ -153,7 +153,7 @@ The terminologies being used in the above ldif file are being explained below in
 | `MAY`           | Optional attributes - can be left empty |		
 | `X-ORIGIN`      | Marking origin of the objectClass definition - like metadata  |		
 
-4. Object Definition
+2.3 Object Definition
 
 | LDIF Term |  Explanation       |		
 |------|---------------------------------------------------------------------------------------------------------|		
@@ -163,7 +163,7 @@ The terminologies being used in the above ldif file are being explained below in
 | `ou`| Organisational Unit - basically objects used for organisational sub-groups |		
 | `objectClass`  | assigning the type of object (that was created in previous step) to the objects |		
 
-*3. Adding Entries of LDIF Files To Directory*
+**3. Adding Entries of LDIF Files To Directory**
 - Sequentially, ran the `ldapmodify -a -c -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!rEDACTED!]" -f roomInfo.ldif` command to create entries
 	- *`-a`*: To add entries from the ldif file
 	- *`-c`*: To continue processing the ldif file instead of stopping even if faced with error - [like `ignore_errors: yes` in Ansible-Playbooks](https://stackoverflow.com/questions/38876487/ansible-ignore-errors-in-tasks-and-fail-at-end-of-the-playbook-if-any-tasks-had)
