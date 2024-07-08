@@ -262,8 +262,6 @@ For being able to get better at filtering searches while utilising the `ldapsear
 	- Helped clear my understanding of RDN, DN and CN through a simple language 
 - [LDAP Official Document: Attribute Syntaxes](https://ldap.com/attribute-syntaxes/)
 	- For learning about the various data types of attributes 
-- [389DirectoryServer Article: Class of Service](https://www.port389.org/docs/389ds/howto/howto-classofservice.html)
- 	- For understanding the concept of Class of Service - which can be helpful in setting default values of an attribute if missing
 - [Reddit Post: What are internet protocols?](https://www.reddit.com/r/learnprogramming/comments/3jjezp/what_are_internet_protocols/)
 	- Great for getting a basic idea of internet protocols through analogies
 - [DevConnected Article: How To Search LDAP using ldapsearch](https://devconnected.com/how-to-search-ldap-using-ldapsearch-examples/)
