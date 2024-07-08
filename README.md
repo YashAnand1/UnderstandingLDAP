@@ -237,10 +237,23 @@ ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b
 For being able to get better at filtering searches while utilising the `ldapsearch` tool, [I practised 20 Questions/Situations](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/LDAPSearching.md) based on the `roomInfo.ldif` that I had created earlier. 
 
 ## Resources
+- [StackOverflow Post: What does LDAP solve?](https://stackoverflow.com/questions/884604/what-does-ldap-solve)
+	- For understanding the purpose of LDAP & use-cases
 - [Hierarchical VS Flat Directories](https://stackoverflow.com/questions/40558806/best-directory-structure-for-static-files-hierarchical-vs-flat)
 	- Good for understanding through computer related examples
 - [Hierarchical vs. Flat Organisational Structure](https://pingboard.com/blog/hierarchical-vs-flat-organizational-structure-and-benefits-of-each/) 
 	- Extremely great for general understanding with real life examples
 - [DigitalOcean: How To Use LDIF Files to Make Changes to an OpenLDAP System](https://www.digitalocean.com/community/tutorials/how-to-use-ldif-files-to-make-changes-to-an-openldap-system)
 	- Explains Create, Update and Delete process using LDIFs really well
-- [Understanding the LDAP Protocol, Data Hierarchy, and Entry Components](https://www.digitalocean.com/community/tutorials/understanding-the-ldap-protocol-data-hierarchy-and-entry-components#defining-ldap-data-components)
+- [DigitialOcean: Understanding the LDAP Protocol, Data Hierarchy, and Entry Components](https://www.digitalocean.com/community/tutorials/understanding-the-ldap-protocol-data-hierarchy-and-entry-components#defining-ldap-data-components)
+	- Clears the fundamentals/basics to the terminologies such as Attributes, ObjectClasses, etc.
+- [ServerFault Post: What is the difference between an RDN, a DN, and a CN in LDAP?](https://serverfault.com/questions/790108/what-is-the-difference-between-an-rdn-a-dn-and-a-cn-in-ldap)
+	- Helped clear my understanding of RDN, DN and CN through a simple language 
+- [LDAP Official Document: Attribute Syntaxes](https://ldap.com/attribute-syntaxes/)
+	- For learning about the various data types of attributes 
+- [389DirectoryServer Article: Class of Service](https://www.port389.org/docs/389ds/howto/howto-classofservice.html)
+ 	- For understanding the concept of Class of Service - which can be helpful in setting default values of an attribute if missing
+- [Reddit Post: What are internet protocols?](https://www.reddit.com/r/learnprogramming/comments/3jjezp/what_are_internet_protocols/)
+	- Great for getting a basic idea of internet protocols through analogies
+- [DevConnected Article: How To Search LDAP using ldapsearch](https://devconnected.com/how-to-search-ldap-using-ldapsearch-examples/)
+	- For understanding use-cases and scenarios in which ldapsearching can be made possible 
