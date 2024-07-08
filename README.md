@@ -132,33 +132,33 @@ I wrote the '[roomInfo.ldif](https://github.com/YashAnand1/UnderstandingLDAP/blo
 
 The terminologies being used in the above ldif file are being explained below in a tabular form to explain these 3 entry-blocks. Please have a look at hyperlinked LDIF FIle first and then refer to the following tables for a better understanding:
 
-1. Attribute Definitions
-| LDIF Term |  Explanation |
-|----|-----------------------------------------------------------------|
-| `attributetypes` | Defining attribute to be added and its features   |
-| `NAME`       | Attribute Names
-| `EQUALITY`| For equality matching operations on the attribute values - "Ignore case match entered by user when searching" |
-| `SYNTAX`    | In LDAP SYNTAX = DataType like string, integer, etc. but with a [unique code](https://ldap.com/attribute-syntaxes/) |
-| `SINGLE-VALUE`| Some attributes can only have one value but some may have many |
+1. Attribute Definitions			
+| LDIF Term |  Explanation |			
+|----|-----------------------------------------------------------------|			
+| `attributetypes` | Defining attribute to be added and its features   |			
+| `NAME`       | Attribute Names		| 
+| `EQUALITY`| For equality matching operations on the attribute values - "Ignore case match entered by user when searching" |			
+| `SYNTAX`    | In LDAP SYNTAX = DataType like string, integer, etc. but with a [unique code](https://ldap.com/attribute-syntaxes/) |		
+| `SINGLE-VALUE`| Some attributes can only have one value but some may have many |		
 
-2. ObjectClass Definitions
-| LDIF Term    | eXplanation    |
-|---|--------------------------------------|
-| `objectClasses` | Defines the objectClass to be added in the directory     |
-| `NAME`          | Object class name                                                |
-| `SUP`           | AKA Superclass - "This is a parent class that the objectClass being created is a child of and so inherits its attributes" |
-| `MUST`          | Mandatory attributes - cannot be left empty    |
-| `MAY`           | Optional attributes - can be left empty |
-| `X-ORIGIN`      | Marking origin of the objectClass definition - like metadata  |
+2. ObjectClass Definitions			
+| LDIF Term    | eXplanation    |			
+|---|--------------------------------------|			
+| `objectClasses` | Defines the objectClass to be added in the directory     |		
+| `NAME`          | Object class name                                                |			
+| `SUP`           | AKA Superclass - "This is a parent class that the objectClass being created is a child of and so inherits its attributes" |		
+| `MUST`          | Mandatory attributes - cannot be left empty    |		
+| `MAY`           | Optional attributes - can be left empty |		
+| `X-ORIGIN`      | Marking origin of the objectClass definition - like metadata  |		
 
-3. Object Definition
-| LDIF Term |  Explanation       |
-|------|---------------------------------------------------------------------------------------------------------|
-| `dn` | Distinguished Name or specific entry name in the LDAP directory |
-| `dc`| Domain Component - used to define the namespace in the LDAP directory (like `dc=wikipedia,dc=org` from previous example)  |
-| `cn`  | Common Name or the name of an object |
-| `ou`| Organisational Unit - basically objects used for organisational sub-groups |
-| `objectClass`  | assigning the type of object (that was created in previous step) to the objects |
+3. Object Definition			
+| LDIF Term |  Explanation       |		
+|------|---------------------------------------------------------------------------------------------------------|		
+| `dn` | Distinguished Name or specific entry name in the LDAP directory |		
+| `dc`| Domain Component - used to define the namespace in the LDAP directory (like `dc=wikipedia,dc=org` from previous example)  |		
+| `cn`  | Common Name or the name of an object |		
+| `ou`| Organisational Unit - basically objects used for organisational sub-groups |		
+| `objectClass`  | assigning the type of object (that was created in previous step) to the objects |		
 
 *3. Adding Entries of LDIF Files To Directory*
 - Sequentially, ran the `ldapmodify -a -c -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!rEDACTED!]" -f roomInfo.ldif` command to create entries
@@ -179,12 +179,12 @@ The verification of the addition of the entries was done by visiting the ApacheD
 ### Modifying A Directory
 GIven that the entries from my LDIF File had been added to the directory, I modify these entries by creating another LDIF File called **[`modify.ldif`](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/modify.ldif)** which has been explained below:
 
-| LDIF Modifying Term | Explanation |
-|---|--------------|
-| `changetype`   | The type of modification operation: add / replace / delete |
-| `add` | To add new atribute-values |
-| `replace` | To replace existing values of an attribute |
-| `delete` | To delete value or its attribute |
+| LDIF Modifying Term | Explanation |			
+|---|--------------|		
+| `changetype`   | The type of modification operation: add / replace / delete |			
+| `add` | To add new atribute-values |			
+| `replace` | To replace existing values of an attribute |		
+| `delete` | To delete value or its attribute |		
 
 After the above file had been created, I ran the `ldapmodify -a -c -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!rEDACTED!]" -f modify.ldif` command to add the entries into my existing directory
 
