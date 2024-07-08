@@ -132,7 +132,8 @@ I wrote the '[roomInfo.ldif](https://github.com/YashAnand1/UnderstandingLDAP/blo
 
 The terminologies being used in the above ldif file are being explained below in a tabular form to explain these 3 entry-blocks. Please have a look at hyperlinked LDIF FIle first and then refer to the following tables for a better understanding:
 
-1. Attribute Definitions			
+1. Attribute Definitions
+  
 | LDIF Term |  Explanation |			
 |----|-----------------------------------------------------------------|			
 | `attributetypes` | Defining attribute to be added and its features   |			
@@ -141,7 +142,8 @@ The terminologies being used in the above ldif file are being explained below in
 | `SYNTAX`    | In LDAP SYNTAX = DataType like string, integer, etc. but with a [unique code](https://ldap.com/attribute-syntaxes/) |		
 | `SINGLE-VALUE`| Some attributes can only have one value but some may have many |		
 
-2. ObjectClass Definitions			
+3. ObjectClass Definitions
+
 | LDIF Term    | eXplanation    |			
 |---|--------------------------------------|			
 | `objectClasses` | Defines the objectClass to be added in the directory     |		
@@ -151,7 +153,8 @@ The terminologies being used in the above ldif file are being explained below in
 | `MAY`           | Optional attributes - can be left empty |		
 | `X-ORIGIN`      | Marking origin of the objectClass definition - like metadata  |		
 
-3. Object Definition			
+4. Object Definition
+
 | LDIF Term |  Explanation       |		
 |------|---------------------------------------------------------------------------------------------------------|		
 | `dn` | Distinguished Name or specific entry name in the LDAP directory |		
