@@ -1,4 +1,7 @@
-# Verifying The Basics
+<div align=center>
+
+# Understanding LDAP
+</div>
 
 ## Table of Content
 
