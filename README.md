@@ -2,17 +2,9 @@
 
 # Understanding LDAP
 </div>
-
+<!--
 ## Table of Content
-
-## Resources
-- [Hierarchical VS Flat Directories](https://stackoverflow.com/questions/40558806/best-directory-structure-for-static-files-hierarchical-vs-flat)
-	- Good for understanding through computer related examples
-- [Hierarchical vs. Flat Organisational Structure](https://pingboard.com/blog/hierarchical-vs-flat-organizational-structure-and-benefits-of-each/) 
-	- Extremely great for general understanding with real life examples
-- [DigitalOcean: How To Use LDIF Files to Make Changes to an OpenLDAP System](https://www.digitalocean.com/community/tutorials/how-to-use-ldif-files-to-make-changes-to-an-openldap-system)
-	- Explains Create, Update and Delete process using LDIFs really well
-- [Understanding the LDAP Protocol, Data Hierarchy, and Entry Components](https://www.digitalocean.com/community/tutorials/understanding-the-ldap-protocol-data-hierarchy-and-entry-components#defining-ldap-data-components)
+-->
 
 ## Understanding LDAP And Its Components
 LDAP (Lightweight Directory Access Protocol) is a **protocol** or a way of talking to and possibly modifying **directories**.  
@@ -244,3 +236,11 @@ ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b
 
 For being able to get better at filtering searches while utilising the `ldapsearch` tool, [I practised 20 Questions/Situations](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/LDAPSearching.md) based on the `roomInfo.ldif` that I had created earlier. 
 
+## Resources
+- [Hierarchical VS Flat Directories](https://stackoverflow.com/questions/40558806/best-directory-structure-for-static-files-hierarchical-vs-flat)
+	- Good for understanding through computer related examples
+- [Hierarchical vs. Flat Organisational Structure](https://pingboard.com/blog/hierarchical-vs-flat-organizational-structure-and-benefits-of-each/) 
+	- Extremely great for general understanding with real life examples
+- [DigitalOcean: How To Use LDIF Files to Make Changes to an OpenLDAP System](https://www.digitalocean.com/community/tutorials/how-to-use-ldif-files-to-make-changes-to-an-openldap-system)
+	- Explains Create, Update and Delete process using LDIFs really well
+- [Understanding the LDAP Protocol, Data Hierarchy, and Entry Components](https://www.digitalocean.com/community/tutorials/understanding-the-ldap-protocol-data-hierarchy-and-entry-components#defining-ldap-data-components)
