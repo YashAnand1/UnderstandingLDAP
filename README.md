@@ -249,8 +249,6 @@ ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b
 For being able to get better at filtering searches while utilising the `ldapsearch` tool, [I practised 20 Questions/Situations](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/LDAPSearching.md) based on the `roomInfo.ldif` that I had created earlier. 
 
 ## Resources
-
-<span style="font-size: smaller;">
 	
 - [StackOverflow Post: What does LDAP solve?](https://stackoverflow.com/questions/884604/what-does-ldap-solve)	
 	- For understanding the purpose of LDAP & use-cases
@@ -270,5 +268,3 @@ For being able to get better at filtering searches while utilising the `ldapsear
 	- Great for getting a basic idea of internet protocols through analogies
 - [DevConnected Article: How To Search LDAP using ldapsearch](https://devconnected.com/how-to-search-ldap-using-ldapsearch-examples/)	
 	- For understanding use-cases and scenarios in which ldapsearching can be made possible 
-
-</span>
