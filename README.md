@@ -171,7 +171,7 @@ The terminologies being used in the above ldif file are being explained below in
 | LDIF Term |  Explanation       |		
 |------|---------------------------------------------------------------------------------------------------------|		
 | `dn` | Distinguished Name or specific entry name in the LDAP directory |		
-| `dc`| Domain Component - used to define the namespace in the LDAP directory (like `dc=wikipedia,dc=org` from previous example)  |		
+| `dc`| Domain Component - Like `dc=wikipedia,dc=org` from previous example  |		
 | `cn`  | Common Name or the name of an object |		
 | `ou`| Organisational Unit - basically objects used for organisational sub-groups |		
 | `objectClass`  | assigning the type of object (that was created in previous step) to the objects |		
