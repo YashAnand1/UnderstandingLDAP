@@ -98,7 +98,7 @@ Company
 |                   |-------> Table-Chair details (their Number, their Colour, Type of chair, etc.)  
 |
 |----> Employee Rooms
-|       |-------> Indigo/Fino
+|       |-------> Indigo
 |       |           |-------> Table-Chair details (their Number, their Colour, Type of chair, etc.) 
 |       |
 |       |-------> Aryabhat
