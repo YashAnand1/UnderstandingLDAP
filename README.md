@@ -1,7 +1,6 @@
 <div align=center>
 
-![img](https://i0.wp.com/ldap.com/wp-content/uploads/2018/04/ldapdotcom-transparent-background-without-text-48x48.png?resize=48%2C48&ssl=1) 
-# Understanding LDAP: An Introduction
+![img](https://i0.wp.com/ldap.com/wp-content/uploads/2018/04/ldapdotcom-transparent-background-without-text-48x48.png?resize=48%2C48&ssl=1) <h1> Understanding LDAP: An Introduction </h1>
 </div>
 
 ## Table of Contents
