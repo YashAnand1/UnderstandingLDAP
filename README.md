@@ -1,6 +1,6 @@
 <div align=center>
 
-# A Beginner Friendly Introduction To LDAP
+# Understanding LDAP: An Introduction
 </div>
 
 ## Table of Contents
