@@ -1,7 +1,6 @@
 <div align=center>
 
-# Understanding LDAP
-A short, simple & easy to understand introduction to Prometheus
+# A Beginner Friendly Introduction To LDAP
 </div>
 
 ## Table of Contents
