@@ -1,6 +1,6 @@
 <div align=center>
 
-![img](https://www.azumuta.com/wp-content/uploads/2024/03/integrations-logo-ldap.png)
+![img](https://i.imgur.com/lkhw80m.png)
 # Understanding LDAP: An Introduction
 </div>
 
