@@ -11,11 +11,11 @@
 - [Topics Related To Directory](#topics-related-to-directory)
   - [Directory Information Tree (DIT)](#directory-information-tree-dit)
   - [Suffix & Distinguished Name (dn)](#suffix--distinguished-name-dn)
-- [LDAP Installation](#ldap-installation)
 - [Working With Directories](#working-with-directories)
   - [Creating A Directory](#creating-a-directory)
   - [Modifying A Directory](#modifying-a-directory)
 - [Searching Using LDAPSearch](#searching-using-ldapsearch)
+- [LDAP Installation](#ldap-installation)
 - [Resources](#resources)
 
 ## Understanding LDAP And Its Components
