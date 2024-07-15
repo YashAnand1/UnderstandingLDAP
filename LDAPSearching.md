@@ -2,7 +2,7 @@
 
 The 20 questions mentioned within this document are strictly based on the [Sample-Directory](https://github.com/YashAnand1/UnderstandingLDAP?tab=readme-ov-file#creating-a-directory) that has been created by me for the main 'Understanding LDAP' document. For understanding the structure of the directory for which these questions have been framed, click on the above hyperlink.   
 
-## 1. Find all rooms with more than 5 spinny chairs.
+## 1. Find all rooms with 4 spinny chairs.
 ```
 ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b "dc=company,dc=com" "spinnyChairNo=4" spinnyChairNo -LLL
 
