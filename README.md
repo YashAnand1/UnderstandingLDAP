@@ -224,7 +224,7 @@ ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b
 For being able to get better at filtering searches while utilising the `ldapsearch` tool, [I practised 20 Questions/Situations](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/LDAPSearching.md) based on the `roomInfo.ldif` that I had created earlier. 
 
 ## LDAP Installation
-The following installations or setups were performed on my end for being able to work with LDAP first:
+The following installations or setups were performed on my end for being able to work with LDAP:
 
 **1. Containerising LDAP**
    - Creating Container: `podman run -d --name ldap-v1 -e DS_DM_PASSWORD=[!REDACTED!] -v /home/user/Desktop/ldap:/data --security-opt label=disable -p 3389:3389 docker.io/389ds/dirsrv:latest`
