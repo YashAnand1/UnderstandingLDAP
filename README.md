@@ -65,7 +65,7 @@ Distinguished Names (dn) on the other hand, are a unique name to specify the pin
 The following installations or setups were performed on my end for being able to work with LDAP first:
 
 **1. Containerising LDAP**
-   - Creating Container: podman run -d --name ldap-v1 -e DS_DM_PASSWORD=[!REDACTED!] -v /home/user/Desktop/ldap:/data --security-opt label=disable -p 3389:3389 docker.io/389ds/dirsrv:latest
+   - Creating Container: `podman run -d --name ldap-v1 -e DS_DM_PASSWORD=[!REDACTED!] -v /home/user/Desktop/ldap:/data --security-opt label=disable -p 3389:3389 docker.io/389ds/dirsrv:latest`
       - '-d' = detatched
       - '-e' = extras
       - '-v' = volume (for mounting)
