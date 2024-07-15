@@ -8,6 +8,10 @@ changetype: modify
 delete: wheellessChairCol
 wheellessChairCol: blue
 
+# To delete an entire object... Run ldapmodify without -a -c - or run ldapdelete -H ldap://localhost:3389 -D "cn=Directory Manager" -w qwerty123 ou=grandparents,dc=anand
+# dn: ou=grandparents,dc=anand 
+# changeType: delete
+
 DN: cn=Indigo,ou=employees,dc=company,dc=com
 changetype: modify
 add: wheellessChairCol
