@@ -62,7 +62,7 @@ This is the starting point of the directory, its the very foundation within whic
 Distinguished Names (dn) on the other hand, are a unique name to specify the pin-pointed location of an entry within the directory. If this is not unique, then querying specific attributes within a directory would be difficult. This is similar to how files with same name cannot be added within the same folder. If the previous example was to be represented hierarchically in LDAP, its `dn` could be `cn=someArticle, ou=wiki, dc=wikipedia, dc=org`.
 
 ## LDAP Prerequisites
-The following installations or setups were performed on my end while referring to the shared [LDAP Document](https://docs.google.com/document/d/1zbjN5cB8diZPTORcUBHZclctrTYhD5sW3P_MNh-v-jM/edit):
+The following installations or setups were performed on my end for being able to work with LDAP first:
 
 **1. Containerising LDAP**
    - Creating Container: podman run -d --name ldap-v1 -e DS_DM_PASSWORD=[!REDACTED!] -v /home/user/Desktop/ldap:/data --security-opt label=disable -p 3389:3389 docker.io/389ds/dirsrv:latest
@@ -89,7 +89,7 @@ The following installations or setups were performed on my end while referring t
 ## Working With Directories
 
 ### Creating A Directory
-The actions performed in this section from my end were the shared [LDAP Document](https://docs.google.com/document/d/1zbjN5cB8diZPTORcUBHZclctrTYhD5sW3P_MNh-v-jM/edit) and [this DigitalOcean Guide](https://www.digitalocean.com/community/tutorials/understanding-the-ldap-protocol-data-hierarchy-and-entry-components#defining-ldap-data-components). The sample database that I created for my own understanding followed the scenario of storing information related to the Table-Chairs within a company's rooms that will be divided into different groups. The following structure was formed before getting started:
+The actions performed in this section from my end was [this DigitalOcean Guide](https://www.digitalocean.com/community/tutorials/understanding-the-ldap-protocol-data-hierarchy-and-entry-components#defining-ldap-data-components). The sample database that I created for my own understanding followed the scenario of storing information related to the Table-Chairs within a company's rooms that will be divided into different groups. The following structure was formed before getting started:
 ```
 Company
 |
