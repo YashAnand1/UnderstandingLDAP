@@ -52,7 +52,7 @@ Within the context of LDAP, a directory is a database whose speciality is fast f
 
 ### Topics Related To Directory 
 #### Directory Information Tree (DIT)
-In applications like Apache Directory Studio & LDAP, DIT is used to structure and access directory entries based on their hierarchical relationships. 
+In LDAP, DIT is used to structure and access directory entries based on their hierarchical relationships. 
 
 As explained before, LDAP connects to hierarchical directories which have tree-like structures. The suffix and other objects with **Distinguished Names (DNs)** belong within this very tree.
 
