@@ -11,7 +11,7 @@
 - [Topics Related To Directory](#topics-related-to-directory)
   - [Directory Information Tree (DIT)](#directory-information-tree-dit)
   - [Suffix & Distinguished Name (dn)](#suffix--distinguished-name-dn)
-- [LDAP Prerequisites](#ldap-prerequisites)
+- [LDAP Installation](#ldap-installation)
 - [Working With Directories](#working-with-directories)
   - [Creating A Directory](#creating-a-directory)
   - [Modifying A Directory](#modifying-a-directory)
@@ -60,31 +60,6 @@ As explained before, LDAP connects to hierarchical directories which have tree-l
 This is the starting point of the directory, its the very foundation within which data will be added. For simplicity, the name of the site like "wikipedia.com/" is the suffix and the pages created further within it are like entries/objects. As an example, "wiki/" & "wiki/someArticle" in "wikipedia.org/wiki/someArticle" will represent how entries (pages) are organised under the suffix (wikipedia.org). Similarly in filesystem, "/" will be the suffix and the files stored under it will be the entries.
 
 Distinguished Names (dn) on the other hand, are a unique name to specify the pin-pointed location of an entry within the directory. If this is not unique, then querying specific attributes within a directory would be difficult. This is similar to how files with same name cannot be added within the same folder. If the previous example was to be represented hierarchically in LDAP, its `dn` could be `cn=someArticle, ou=wiki, dc=wikipedia, dc=org`.
-
-## LDAP Prerequisites
-The following installations or setups were performed on my end for being able to work with LDAP first:
-
-**1. Containerising LDAP**
-   - Creating Container: `podman run -d --name ldap-v1 -e DS_DM_PASSWORD=[!REDACTED!] -v /home/user/Desktop/ldap:/data --security-opt label=disable -p 3389:3389 docker.io/389ds/dirsrv:latest`
-      - '-d' = detatched
-      - '-e' = extras
-      - '-v' = volume (for mounting)
-      - '-p' = changeable outer port:default inner port
-
-**2. Installing ldap-utils**
-   - [LDAP-Utilities](https://wiki.debian.org/LDAP/LDAPUtils)
-   	- Contains tools like `ldapsearch`, `ldapmodify`, `ldapdelete`, etc. that are used to interact with the LDAP Directories
-   - Installation command: `sudo apt install ldap-utils`
-
-**3. Setting-up Apache DirectoryStudio (ApacheDS)**
-   - Downloaded tar file from the [ApacheDS website](https://directory.apache.org/studio/download/download-linux.html), untarred it & ran './ApacheDirectoryStudio'
-   - Clicked 'Window -> Open Perspective -> Other -> LDAP (Default)'
-   - Created a connection in the LDAP Browser using:
-      - Name: originalConnection
-      - Host: localhost
-      - Port: 3389
-      - bindDn: cn=Directory Manager (admin)
-      	- This is the identity of LDAP Client that is given to LDAP Server for authentication - Kind of like a username.
 
 ## Working With Directories
 
@@ -247,6 +222,31 @@ ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w [!REDACTED!] -b
 ```
 
 For being able to get better at filtering searches while utilising the `ldapsearch` tool, [I practised 20 Questions/Situations](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/LDAPSearching.md) based on the `roomInfo.ldif` that I had created earlier. 
+
+## LDAP Installation
+The following installations or setups were performed on my end for being able to work with LDAP first:
+
+**1. Containerising LDAP**
+   - Creating Container: `podman run -d --name ldap-v1 -e DS_DM_PASSWORD=[!REDACTED!] -v /home/user/Desktop/ldap:/data --security-opt label=disable -p 3389:3389 docker.io/389ds/dirsrv:latest`
+      - '-d' = detatched
+      - '-e' = extras
+      - '-v' = volume (for mounting)
+      - '-p' = changeable outer port:default inner port
+
+**2. Installing ldap-utils**
+   - [LDAP-Utilities](https://wiki.debian.org/LDAP/LDAPUtils)
+   	- Contains tools like `ldapsearch`, `ldapmodify`, `ldapdelete`, etc. that are used to interact with the LDAP Directories
+   - Installation command: `sudo apt install ldap-utils`
+
+**3. Setting-up Apache DirectoryStudio (ApacheDS)**
+   - Downloaded tar file from the [ApacheDS website](https://directory.apache.org/studio/download/download-linux.html), untarred it & ran './ApacheDirectoryStudio'
+   - Clicked 'Window -> Open Perspective -> Other -> LDAP (Default)'
+   - Created a connection in the LDAP Browser using:
+      - Name: originalConnection
+      - Host: localhost
+      - Port: 3389
+      - bindDn: cn=Directory Manager (admin)
+      	- This is the identity of LDAP Client that is given to LDAP Server for authentication - Kind of like a username.
 
 ## Resources
 	
