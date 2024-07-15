@@ -2,12 +2,14 @@
 dn: cn=schema
 changetype: modify
 add: attributetypes
-attributetypes: ( spinnyChairNo-OID NAME 'spinnyChairNo' DESC 'spinnyChairNo, IA5String' EQUALITY caseIgnoreIA5match SUBSTR caseIgnoreIA5SubstringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{5} SINGLE-VALUE X-ORIGIN ('Num of spinnyChair' 'user defined') )
+attributetypes: ( spinnyChairNo-OID NAME 'spinnyChairNo' DESC 'spinnyChairNo, integer' EQUALITY caseIgnoreIntegermatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27{5} SINGLE-VALUE X-ORIGIN ('Num of spinnyChair' 'user defined') )
 attributetypes: ( spinnyChairCol-OID NAME 'spinnyChairCol' DESC 'spinnyChairCol, IA5String' EQUALITY caseIgnoreIA5match SUBSTR caseIgnoreIA5SubstringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{5} SINGLE-VALUE X-ORIGIN ('Col of spinnyChair' 'user defined') )
-attributetypes: ( wheellessChairNo-OID NAME 'wheellessChairNo' DESC 'wheellessChairNo, IA5String' EQUALITY caseIgnoreIA5match SUBSTR caseIgnoreIA5SubstringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{5} SINGLE-VALUE X-ORIGIN ('num of wheellessChair' 'user defined') )
+attributetypes: ( wheellessChairNo-OID NAME 'wheellessChairNo' DESC 'wheellessChairNo, Integer' EQUALITY caseIgnoreIntegermatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27{5} SINGLE-VALUE X-ORIGIN ('num of wheellessChair' 'user defined') )
 attributetypes: ( wheellessChairCol-OID NAME 'wheellessChairCol' DESC 'wheellessChairCol, IA5String' EQUALITY caseIgnoreIA5match SUBSTR caseIgnoreIA5SubstringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{5} SINGLE-VALUE X-ORIGIN ('Col of wheellessChair' 'user defined') )
-attributetypes: ( tableNo-OID NAME 'tableNo' DESC 'tableNo, IA5String' EQUALITY caseIgnoreIA5match SUBSTR caseIgnoreIA5SubstringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{5} SINGLE-VALUE X-ORIGIN ('Num of table' 'user defined') )
+attributetypes: ( tableNo-OID NAME 'tableNo' DESC 'tableNo, Integer' EQUALITY caseIgnoreIntegermatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27{5} SINGLE-VALUE X-ORIGIN ('Num of table' 'user defined') )
 attributetypes: ( tableCol-OID NAME 'tableCol' DESC 'tableCol, IA5String' EQUALITY caseIgnoreIA5match SUBSTR caseIgnoreIA5SubstringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{5} SINGLE-VALUE X-ORIGIN ('Col of table' 'user defined') )
+attributetypes: ( purchase-OID  NAME 'purchase' DESC 'Date of purchase, time' EQUALITY generalizedTimeMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.24{24} ) SINGLE-VALUE X-ORIGIN ('date of purchase of chair or table' 'user defined') )
+attributetypes: ( secondHand-OID NAME 'secondHand' DESC 'Is it new or 2nd hand, boolean' EQUALITY booleanMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 SINGLE-VALUE X-ORIGIN ('new or not' 'user defined') )
 
 # Defining ObjectClass For Being Added tO The Data-Entries
 dn: cn=schema
