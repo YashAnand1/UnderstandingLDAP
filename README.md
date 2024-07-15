@@ -89,7 +89,7 @@ The following installations or setups were performed on my end for being able to
 ## Working With Directories
 
 ### Creating A Directory
-The actions performed in this section from my end was [this DigitalOcean Guide](https://www.digitalocean.com/community/tutorials/understanding-the-ldap-protocol-data-hierarchy-and-entry-components#defining-ldap-data-components). The sample database that I created for my own understanding followed the scenario of storing information related to the Table-Chairs within a company's rooms that will be divided into different groups. The following structure was formed before getting started:
+The actions in this section were performed after going through this document [this DigitalOcean Guide](https://www.digitalocean.com/community/tutorials/understanding-the-ldap-protocol-data-hierarchy-and-entry-components#defining-ldap-data-components). The sample database that I created for my own understanding followed the scenario of storing information related to the Table-Chairs within a company's rooms that will be divided into different groups. The following structure was formed before getting started:
 ```
 Company
 |
@@ -122,14 +122,14 @@ Provided below are the steps that I utilised for creating a directory for the ab
 - Entered the LDAP container using `podman exec -it ldap-v1 bash` where ldap-v1 is my container's name
 - Created suffix using `dsconf -D "cn=Directory Manager" ldap://localhost:3389 backend create --suffix="dc=chairtables, dc=com" --be-name="company""`
 	- *`dsconf`*: CLI-Tool for managing directories - Have not studied this tool in detail
-	- *`-D="cn=Directory Manager"`*: To define the Distinguished Name (bindDN) used while connecting - Directory Manager is Admin
+	- *`-D="cn=Directory Manager"`*: To define the bindDN used while connecting - Directory Manager is Admin
 	- *`ldap://localhost:3389`*: To specify the LDAP Host server
 	- *`backend create`*: To create a database in backend
 	- *`--suffix="dc=company,dc=com"`*: For specifying the Suffix or the Root-Distinguished-Name
 	- *`--be-name`*: To specify the name of the suffix
 - Ran `dsconf -D "cn=Directory Manager" ldap://localhost:3389 backend suffix list` to verify the creation of the suffix
    
-**2. Writing LDIF To creation Entries of Attributes, ObjectClass and Objects**
+**2. Writing LDIF To creation Entries of Attributes, ObjectClass and Objects**		
 I wrote the '[roomInfo.ldif](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/roomInfo.ldif)' LDIF file for creating these entries, with the following sequence:
 - Attribute definitions
 - ObjectClass definition
@@ -154,7 +154,7 @@ The terminologies being used in the above ldif file are being explained below in
 
 <div align=center>
 	
-| LDIF Term    | eXplanation    |			
+| LDIF Term    | Explanation    |			
 |---|--------------------------------------|			
 | `objectClasses` | Defines the objectClass to be added in the directory     |		
 | `NAME`          | Object class name                                                |			
@@ -178,7 +178,7 @@ The terminologies being used in the above ldif file are being explained below in
 </div>
 
 **3. Adding Entries of LDIF Files To Directory**
-- Sequentially, ran the `ldapmodify -a -c -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!rEDACTED!]" -f roomInfo.ldif` command to create entries
+- Sequentially, ran the `ldapmodify -a -c -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!rEDACTED!]" -f <name>.ldif` command to create entries
 	- *`-a`*: To add entries from the ldif file
 	- *`-c`*: To continue processing the ldif file instead of stopping even if faced with error - [like `ignore_errors: yes` in Ansible-Playbooks](https://stackoverflow.com/questions/38876487/ansible-ignore-errors-in-tasks-and-fail-at-end-of-the-playbook-if-any-tasks-had)
 	- *`-H`*: Specifying the LDAP URL of the LDAP server to connect to
@@ -194,7 +194,7 @@ The verification of the addition of the entries was done by visiting the ApacheD
 </div>
 
 ### Modifying A Directory
-GIven that the entries from my LDIF File had been added to the directory, I modify these entries by creating another LDIF File called **[`modify.ldif`](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/modify.ldif)** which has been explained below:
+Given that the entries from my LDIF File had been added to the directory, I modify these entries by creating another LDIF File called **[`modify.ldif`](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/modify.ldif)**, whose explanation is given below:
 
 <div align=center>
 
@@ -208,7 +208,7 @@ GIven that the entries from my LDIF File had been added to the directory, I modi
 
 After the above file had been created, I ran the `ldapmodify -a -c -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!rEDACTED!]" -f modify.ldif` command to add the entries into my existing directory
 
-The delete operation can be performed by writing an LDIF file like in - my [`modify.ldif`](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/modify.ldif) - or by using the `ldapdelete` or `ldapmodify` tools:
+The delete operation can be performed by writing an LDIF file - like my [`modify.ldif`](https://github.com/YashAnand1/UnderstandingLDAP/blob/main/modify.ldif) - or by using the `ldapdelete` or `ldapmodify` tools:
 - Using `ldapdelete`:
 ```
 ldapdelete -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" specificAttribute=specificValue,ou=organisationalUnit,dc=company,dc=com
