@@ -186,7 +186,7 @@ The terminologies being used in the above ldif file are being explained below in
 	- *`-w`*: For defining the password for the BindDN
 	- *`-f`*: Filename of the LDIF file 
 
-The verification of the addition of the entries was done by visiting the ApacheDS - which could have also been done using LDAPSearch by running a command like `ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "dc=company,dc=com" -LLL` - More on this in the next section.
+The verification of the addition of the entries was done by visiting the ApacheDS - which could have also been done using LDAPSearch by running a command like `ldapsearch -H ldap://localhost:3389 -D "cn=Directory Manager" -w "[!REDACTED!]" -b "dc=company,dc=com" -LLL` - More on this in the coming section but `-b` refers to base/suffix/root of the DIT, essentially searching the entire DIT to match the condition.
 
 <div align=center>
 
