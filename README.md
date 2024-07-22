@@ -261,7 +261,7 @@ The following installations or setups were performed on my end for being able to
 - [DigitialOcean: Understanding the LDAP Protocol, Data Hierarchy, and Entry Components](https://www.digitalocean.com/community/tutorials/understanding-the-ldap-protocol-data-hierarchy-and-entry-components#defining-ldap-data-components)	
 	- Clears the fundamentals/basics to the terminologies such as Attributes, ObjectClasses, etc.
 - [ServerFault Post: What is the difference between an RDN, a DN, and a CN in LDAP?](https://serverfault.com/questions/790108/what-is-the-difference-between-an-rdn-a-dn-and-a-cn-in-ldap)	
-	- Helped clear my understanding of RDN, DN and CN through a simple language 
+	- Helped clear my understanding of DN and CN through a simple language 
 - [LDAP Official Document: Attribute Syntaxes](https://ldap.com/attribute-syntaxes/)	
 	- For learning about the various data types of attributes 
 - [Reddit Post: What are internet protocols?](https://www.reddit.com/r/learnprogramming/comments/3jjezp/what_are_internet_protocols/)	
